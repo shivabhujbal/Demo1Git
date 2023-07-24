@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+               function prom(complete){
+            return new Promise(function(resolve,reject){
+
+                console.log('wait for 5 sec ');
+                setTimeout(() => { if(complete){
+                    resolve('resolved')
+               }
+                else
+            {
+                reject('rejected')
+            }
+                    
+                }, 5000);
+                
+
+               
+            })
+        }
+
+        console.log(prom);
+
+        let onFullfilment = (result) => {
+            console.log(result)
+        }
+
+        let onUnfullfillment = (result) => {
+            console.log(result);
+        }
+
+        prom().then(onFullfilment).catch(onUnfullfillment)
+    </script>
+</body>
+</html>
